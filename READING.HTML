@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Liberia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-color: #f0fff4;
+            color: #1a3c34;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2f855a, #68d391);
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            color: #2f855a;
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: #68d391;
+            bottom: 0;
+            left: 0;
+        }
+
+        .cta {
+            background-color: #2f855a;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+        }
+
+        .cta:hover {
+            background-color: #22543d;
+            transform: translateY(-2px);
+        }
+
+        .donate-cta {
+            background-color: #68d391;
+            color: #1a3c34;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 600;
+        }
+
+        .donate-cta:hover {
+            background-color: #4a9d6b;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 400px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 800px;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            animation: fadeIn 1s ease-in;
+        }
+
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2f855a;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .home-button:hover {
+            background-color: #22543d;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #2f855a;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 40px;
+        }
+
+        footer h3 {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        footer p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        footer .cta, footer .donate-cta {
+            margin-top: 30px;
+            margin-left: 10px;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Fade-in animation for images */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 15px;
+            }
+
+            .hero-image {
+                height: 250px;
+            }
+
+            .section-image {
+                height: 200px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta, .donate-cta {
+                margin-left: 5px;
+                padding: 12px 24px;
+            }
+
+            .home-button {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .hero-image {
+                height: 500px;
+            }
+
+            .section-image {
+                height: 300px;
+            }
+
+            .container {
+                max-width: 1200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>READING LIBERIA</h1>
+        <p>Creating Lifelong Learners Through Creative Engagement</p>
+        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\website pics\READING LIBERIA\reading lib chosen pics\457059054_1018745243590889_5791686529916039538_n.jpg" alt="Reading Liberia at Dominic Hena School" class="hero-image">
+        <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\DONATE.html" class="donate-cta">Donate Now</a>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>A Unique Approach to Literacy</h2>
+            <p>By encouraging students to visit the library, teachers are fostering a culture of reading that goes beyond classroom assignments. Teachers skillfully captivate students' interest by pausing storytelling at the most thrilling moments and urging them to complete the books on their own in the library during recess. This approach has sparked curiosity, independence, and enthusiasm for reading.</p>
+        </div>
+
+        <div class="section">
+            <h2>Outstanding Results and Impact</h2>
+            <p>The results of this creative approach are inspiring. Remarkably, 98% of the GALI girls who were part of this program were promoted to the next grade by the end of the first semester, demonstrating the effectiveness of the program. The school's library, stocked with books generously provided by Reading Liberia, serves as a vital resource for 455 eager learners from grades 1 to 6.</p>
+            <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\website pics\READING LIBERIA\reading lib chosen pics\468525968_1089600879838658_3088202990631599989_n.jpg" alt="Impact of Reading Liberia" class="section-image">
+        </div>
+
+        <div class="section">
+            <h2>Empowering the Future</h2>
+            <p>This initiative exemplifies how strategic innovation in education can empower young minds. As students develop a love for reading, they also build essential skills that will serve them throughout their academic journeys and beyond. The success of this approach is a powerful testament to the impact of creativity, dedication, and community support.</p>
+        </div> 
+    </div>
+
+    <footer>
+        <h3>Support Reading Liberia</h3>
+        <p>Join WE-CARE Foundation in fostering a love for reading and empowering young learners at Dominic Hena School and beyond. Your support can spark a reading revolution across Liberia.</p>
+        <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\DONATE.html" class="donate-cta">Donate Now</a>
+        <div class="copyright">© 2025 WE-CARE Foundation. All rights reserved.</div>
+    </footer>
+
+    <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\index.html" class="home-button">Back to Home</a>
+</body>
+</html>

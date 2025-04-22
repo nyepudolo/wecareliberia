@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WE-CARE FOUNDATION LIBERIA</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8faf8;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #1a4d2e;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(26, 77, 46, 0.95);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin-left: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #a5d6a7 !important;
+        }
+
+        .dropdown-menu {
+            background-color: #1a4d2e;
+            border: none;
+        }
+
+        .dropdown-item {
+            color: #fff !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            color: #a5d6a7 !important;
+            background-color: rgba(26, 77, 46, 0.95);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .hero-content {
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .hero .btn {
+            background-color: #4caf50;
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #388e3c;
+            transform: scale(1.1);
+        }
+
+        /* About Us Section */
+        .about-us {
+            padding: 6rem 2rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .about-us h2 {
+            font-size: 3rem;
+            color: #1a4d2e;
+            margin-bottom: 3rem;
+        }
+
+        .about-us h3 {
+            font-size: 2rem;
+            color: #1a4d2e;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-us img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 2rem 1rem 0;
+        }
+
+        .about-us p {
+            font-size: 1.2rem;
+            color: #374151;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .about-us .btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .about-us .btn:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+
+        /* Impact Section */
+        .impact {
+            padding: 6rem 2rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .impact h2 {
+            font-size: 3rem;
+            color: #1a4d2e;
+            margin-bottom: 3rem;
+        }
+
+        .impact-card {
+            background-color: #f8faf8;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .impact-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .impact-card h3 {
+            font-size: 1.8rem;
+            color: #1a4d2e;
+            margin-bottom: 1rem;
+        }
+
+        .impact-card p {
+            font-size: 1.1rem;
+            color: #374151;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 6rem 2rem;
+            background-color: #e8f5e9;
+            text-align: center;
+        }
+
+        .programs h2 {
+            font-size: 3rem;
+            color: #1a4d2e;
+            margin-bottom: 1.5rem;
+        }
+
+        .programs .intro {
+            font-size: 1.2rem;
+            color: #374151;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .program-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .program-card h3 {
+            font-size: 1.8rem;
+            color: #1a4d2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-card p {
+            font-size: 1.1rem;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .program-card .btn {
+            border-color: #4caf50;
+            color: #4caf50;
+            padding: 0.6rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .program-card .btn:hover {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 6rem 2rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .team h2 {
+            font-size: 3rem;
+            color: #1a4d2e;
+            margin-bottom: 3rem;
+        }
+
+        .team-card {
+            background-color: #f8faf8;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .team-card h3 {
+            font-size: 1.6rem;
+            color: #1a4d2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-card p {
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 6rem 2rem;
+            background-color: #e8f5e9;
+            text-align: center;
+        }
+
+        .partners h2 {
+            font-size: 3rem;
+            color: #1a4d2e;
+            margin-bottom: 3rem;
+        }
+
+        .partner-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .partner-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .partner-card h3 {
+            font-size: 1.4rem;
+            color: #1a4d2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-card p {
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 2rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .timeline-section h2 {
+            font-size: 3rem;
+            color: #1a4d2e;
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #4caf50;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 50%;
+            padding: 1rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 2rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            width: 16px;
+            height: 16px;
+            background: #1a4d2e;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -8px;
+        }
+
+        .timeline-content {
+            background: #f8faf8;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.4rem;
+            color: #1a4d2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        /* Liberia Map Section */
+        .liberia-map {
+            padding: 6rem 2rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .liberia-map h2 {
+            font-size: 3rem;
+            color: #1a4d2e;
+            margin-bottom: 1.5rem;
+        }
+
+        .liberia-map p {
+            font-size: 1.2rem;
+            color: #374151;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .liberia-map img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .counties-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .counties-list span {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            color: #1a4d2e;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: #374151;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact .form-control {
+            border-radius: 10px;
+            border: 1px solid #4caf50;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .contact textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact .btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .contact .btn:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+        }
+
+        .contact-details p {
+            font-size: 1.1rem;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details i {
+            color: #4caf50;
+            margin-right: 0.5rem;
+        }
+
+        /* Call to Action Section */
+        .cta {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1a4d2e 0%, #4caf50 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .cta .btn {
+            background-color: #fff;
+            color: #1a4d2e;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .cta .btn:hover {
+            background-color: #a5d6a7;
+            color: #1a4d2e;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a4d2e;
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .social-links a {
+            color: #fff;
+            font-size: 1.8rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #a5d6a7;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #388e3c;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-us h2, .impact h2, .programs h2, .team h2, .partners h2, .liberia-map h2, .contact h2, .cta h2, .timeline-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .about-us img {
+                width: 250px;
+                height: 150px;
+            }
+
+            .program-card img {
+                height: 250px;
+            }
+
+            .partner-card img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: 80vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero .btn, .cta .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .about-us h2, .impact h2, .programs h2, .team h2, .partners h2, .liberia-map h2, .contact h2, .cta h2, .timeline-section h2 {
+                font-size: 2rem;
+            }
+
+            .about-us img {
+                width: 100%;
+                height: 200px;
+                margin: 0 0 1rem 0;
+                float: none;
+            }
+
+            .about-us p {
+                text-align: center;
+            }
+
+            .program-card img {
+                height: 200px;
+            }
+
+            .team-card img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .partner-card img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+                padding-right: 20px;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 40px;
+            }
+
+            .timeline-item::before {
+                left: 12px;
+            }
+
+            .timeline-item:nth-child(odd)::before,
+            .timeline-item:nth-child(even)::before {
+                left: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .nav-link {
+                margin-left: 0;
+                padding: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero .btn, .cta .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .about-us img {
+                height: 150px;
+            }
+
+            .program-card img {
+                height: 150px;
+            }
+
+            .partner-card img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .contact .form-control {
+                font-size: 0.9rem;
+                padding: 0.6rem;
+            }
+
+            .contact .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">WE-CARE FOUNDATION</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#impact">Impact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#programs" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Programs
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                            <li><a class="dropdown-item" href="C:\Users\owner\OneDrive\Desktop\WECARESITE\GALI.HTML">Girls Accelerated Learning Initiative(GALI)</a></li>
+                            <li><a class="dropdown-item" href="C:\Users\owner\OneDrive\Desktop\WECARESITE\TLFC.HTML">Teaching and Learning in Fragile Settings(TLFC)</a></li>
+                            <li><a class="dropdown-item" href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/NUTURINGCARE.HTML">Nurturing Care</a></li>
+                            <li><a class="dropdown-item" href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/LIBRARY.HTML">Library Program</a></li>
+                            <li><a class="dropdown-item" href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/FLI.HTML">Family Literacy Initiative(FLI)</a></li>
+                            <li><a class="dropdown-item" href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/CRITICALTHINKING.HTML">Critical Thinking - Liberia</a></li>
+                            <li><a class="dropdown-item" href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/READING.HTML">Reading Liberia</a></li>
+                            <li><a class="dropdown-item" href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/PUBLISHING.html">Publishing</a></li>
+                            <li><a class="dropdown-item" href="C:\Users\owner\OneDrive\Desktop\WECARESITE\ECE.html">Early Childhood Education(ECE)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#partners">Our Partners</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#liberia-map">Our Reach</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="C:\Users\owner\OneDrive\Desktop\WECARESITE\DONATE.html">DONATE</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\wecare-hero.jpg" alt="Wecare Vision Pic">
+        <div class="hero-content">
+            <h1>LITERACY FOR ALL !!!</h1>
+            <p>Liberia’s future begins with a book. At WE-CARE Foundation, we empower children, families, and communities through literacy and learning. Because when a child reads, a nation rises.</p>
+            <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\DONATE.html" class="btn btn-primary">Support Us</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about-us">
+        <div class="container">
+            <!-- Mission -->
+            <div class="mb-5">
+                <h3>HOW IT ALL STARTED</h3>
+                <div class="d-flex flex-wrap align-items-center">
+                    <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\libraryservices.jpg" alt="Mission Image" class="float-start">
+                    <div>
+                        <p>WE-CARE Foundation, a Liberian not-for-profit, was founded in 1992 after a brutal civil war. For 31 years, we’ve operated in 10 of Liberia’s 15 counties, transforming education by publishing children’s books, distributing resources, and establishing libraries. It started with a book chain program where people could take books from WE-CARE and, after reading, share them with others without returning them.</p>
+                        <p>We hoped that as people, especially young people, read, they would be too busy to fight or hurt each other. Today, we continue fostering literacy and community engagement across urban and rural areas.</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision -->
+            <div class="mb-5">
+                <h3>Our Mission</h3>
+                <div class="d-flex flex-wrap align-items-center">
+                    <div>
+                        <p>To strengthen Liberia’s education sector through quality reading materials, creative teacher training, and community-driven initiatives, empowering schools, families, and communities.</p>
+                        
+                    </div>
+                    <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\vision wecare.jpg" alt="Vision Image" class="float-end">
+                </div>
+            </div>
+
+            <!-- Goals -->
+            <div>
+                <h3>Our Goals</h3>
+                <div class="d-flex flex-wrap align-items-center">
+                    <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\IMG_0126.JPG" alt="Goals Image" class="float-start">
+                    <div>
+                        <p>WE-CARE Foundation aims to foster a love of books and reading based on the truism: Reading children become reading adults, and reading adults become informed citizens who make sound decisions for social and economic development.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <h2>Our Impact</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="impact-card">
+                        <h3>1,000+ Teachers Trained</h3>
+                        <p>Equipping educators with skills to improve literacy and teaching quality across Liberia’s 10 counties.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="impact-card">
+                        <h3>2,840 Girls Empowered</h3>
+                        <p>Empowering young girls through GALI with education and life skills for sustainable futures.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="impact-card">
+                        <h3>40+ Titles Published</h3>
+                        <p>Producing culturally relevant books and distributing resources to schools and libraries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <h2>WHAT WE DO</h2>
+            <p class="intro">WE-CARE Foundation transforms education across Liberia through innovative programs. We run the WE-CARE Library, one of Liberia’s few public libraries, distribute free books, train teachers and librarians, publish culturally relevant books, and promote foundational literacy. Our initiatives, like story hours for kids and accelerated learning for overage girls, foster a love for reading and empower communities.</p>
+            <h2>HOW WE DO IT</h2>
+            <p><b>OUR PROGRAMS</b></p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="https://scontent.fmlw1-2.fna.fbcdn.net/v/t39.30808-6/481262437_1202525698552121_800997278788585325_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGKz_exvj60KvCu2XIoc_KusTv4b0Iu51uxO_hvQi7nW7ciOJJRBH-1s3XXPEgPouZVuDoM0yUcXOsOR0jTg8qf&_nc_ohc=mk1yfapQ1gkQ7kNvwGgBnBq&_nc_oc=AdmMDGNt334r3dXzAeOi__4rFtJA6LgAQsxmM9MpWJ0yStT24DktRYs1ebqipViVJ64&_nc_zt=23&_nc_ht=scontent.fmlw1-2.fna&_nc_gid=YcqGB2igtw8XWflYawe0sQ&oh=00_AfGv-I-Su-td1rAR2xoe6FV7nR2Q48-WUAUfJMWjNIgRAQ&oe=6803DB82" alt="GALI">
+                        <h3>Girls Accelerated Learning Initiative(GALI)</h3>
+                        <p>Empowering 2,840 overage girls in grades 1-3 with fast-track classes and life skills, achieving 80% two-grade advancement in 2023-2024.</p>
+                        <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\GALI.HTML" class="btn btn-outline-success">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\tlfc-wecarepics.jpg" alt="TLFC">
+                        <h3>Teaching and Learning in Fragile Contexts(TLFC)</h3>
+                        <p>Training teachers at 32 practicum schools and developing digital anthologies for grades 1-6 to enhance equitable education.</p>
+                        <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\TLFC.HTML" class="btn btn-outline-success">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="https://scontent.fmlw1-2.fna.fbcdn.net/v/t39.30808-6/490546419_1201259082006170_1279255506047559117_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeER9pxXgKp8X3z7ReG9vxwYeWEXpO2UCsx5YRek7ZQKzPZyY8xY0PYPWfLm-mmQRJ4xb2GFcq8EoC34ZSZ5tap3&_nc_ohc=WL6K9KRUOsYQ7kNvwGkUTxV&_nc_oc=Adn33WwJx8yBQKckK42ZKzHPd_nZMpQsJX5BzOhqPwdGcMSY7MnViWPxejHcG5QAcl4&_nc_zt=23&_nc_ht=scontent.fmlw1-2.fna&_nc_gid=Ooug4KnqLW5hi2vEaWwBlw&oh=00_AfH1hTg2JnHehqCYYDpFmcEORjhzo94Wt0K8f8ltxPDP6A&oe=6803D66F" alt="Nurturing Care">
+                        <h3>Nurturing Care</h3>
+                        <p>Supporting 950 families with children aged 0-5 through early childhood education, training parents for school readiness.</p>
+                        <a href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/NUTURINGCARE.HTML" class="btn btn-outline-success">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="https://scontent.fmlw1-2.fna.fbcdn.net/v/t39.30808-6/455616296_1009828127815934_535283049122163861_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEDY0fyd-uAACTNFlgP9k8LG64CDDEcLqUbrgIMMRwupfJoMqSl4QmxD9_sY39UniGcViRlBI88zwCuMP0rrUUn&_nc_ohc=uIxzBQ_QWvAQ7kNvwFxQnol&_nc_oc=Adk4Z-mI3EgyZWjUIO356PYuMCRjAUr_C1_yXrh1M4ifUJvte7Gar0oRpekAVdzpz-A&_nc_zt=23&_nc_ht=scontent.fmlw1-2.fna&_nc_gid=47D3efYAjBIjsSjWzXgj5w&oh=00_AfFeiMS93XYLSQXDblJID1j6MilXg2_AceVqUa1FeaJ4Ig&oe=6804088D" alt="Library">
+                        <h3>Library Program</h3>
+                        <p>Operating one public library in Monrovia and seven explorer libraries, fostering reading for pleasure across five counties.</p>
+                        <a href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/LIBRARY.HTML" class="btn btn-outline-success">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="https://scontent.fmlw1-2.fna.fbcdn.net/v/t39.30808-6/459266560_1027883172677096_3306833955794836897_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGRIjjGYjAjzaxB6h8sVa6VM-67ALVtHTYz7rsAtW0dNjRSOufANPWgeHb1Ee7Nj5MwXr-BKsZ1IAwkFab5EJhB&_nc_ohc=ZEiLWo8Mq8UQ7kNvwEAua4v&_nc_oc=AdmmZ1uzf9WVBpJnpkJBpc0JjXJp2kZAti346GF8DeLcQzv9EegIh2j9UfsDB4NMmnQ&_nc_zt=23&_nc_ht=scontent.fmlw1-2.fna&_nc_gid=mKac5pPE7X9MtgQd-mqIuQ&oh=00_AfGJTMHF5EH0BiFMODjdr_L6rDbUBbs0w-Q17MrIwZQFUA&oe=680400E7" alt="FLI">
+                        <h3>Family Literacy Initiative (FLI)</h3>
+                        <p>Empowering parents as first teachers, transforming homes into learning hubs in underserved communities.</p>
+                        <a href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/FLI.HTML" class="btn btn-outline-success">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="https://scontent.fmlw1-2.fna.fbcdn.net/v/t39.30808-6/465401603_9085841688115550_7307868402486353588_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFnXMQy3o5XZUa3cR61QPKX8o0ZC2e5ZofyjRkLZ7lmh_xnmW3SWw5rV007SAapKDd_VBj5RVZypYnIXAXxVZKy&_nc_ohc=f4KmvqQGSqAQ7kNvwE5JSFF&_nc_oc=AdkA2BzP0cAa6oEiX1PTkJ9DdtuCls5ObAwluduVu0GpT9DJQgmih1b5fqwHMAzX6bw&_nc_zt=23&_nc_ht=scontent.fmlw1-2.fna&_nc_gid=W7dWqyR0M7gHKLHyx5aeZg&oh=00_AfF7RiieFJHdgr6Jf3LyHeUCm5zld70U2UYwhj_62L6riw&oe=680400CB" alt="Critical Thinking - Liberia">
+                        <h3>Critical Thinking - Liberia</h3>
+                        <p>Training teachers to foster reflective thinking through education programs reaching classrooms nationwide.</p>
+                        <a href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/CRITICALTHINKING.HTML" class="btn btn-outline-success">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\IMG_0139.JPG" alt="Reading Liberia">
+                        <h3>Reading Liberia</h3>
+                        <p>Turning libraries into literacy zones with creative storytelling to spark a lifelong love of reading.</p>
+                        <a href="file:///C:/Users/owner/OneDrive/Desktop/WECARESITE/READING.HTML" class="btn btn-outline-success">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\IMG_0933.JPG" alt="Publishing">
+                        <h3>Publishing</h3>
+                        <p> Publishing- WE-CARE Publishing unit has trained writers, illustrators, book designers, editors and worked with external editors and partners to produce more than 40 titles covering early childhood, primary and secondary level books. These books are high quality and culturally relevant. 
+                            WE-CARE has also developed ECE eBooks containing regular, sign language and audio versions. WE-CARE works with international consultants on book development. </p>
+                        <a </a>
+                    </div>
+                    </div> 
+                    <div class="col-lg-4 col-md-6">
+                        <div class="program-card">
+                            <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\IMG_20240214_103305.jpg" alt="ECE">
+                            <h3>Early Childhood Education(ECE)</h3>
+                            <p>WE-CARE is implementing ECE programs at three levels: school-based, community based and home-based. Activities include training parents to be their children first teachers in both rural and urban low-income communities.
+                                More than 950 unique families with out-of-school pre-primary children between the ages of 3 - 5 years, have benefited.</p>
+                            <a></a> 
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="milestones">
+        <div class="container">
+            <h2>Milestones</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2011 & 2014</h3>
+                        <p>Supplied primary supplementary readers for USAID-funded Liberia Teacher Training Program.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2013 & 2014</h3>
+                        <p>Printed and distributed readers for the Ministry of Education under Global Partnership for Education.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2014</h3>
+                        <p>Supplied readers to Save the Children.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2015 & 2016</h3>
+                        <p>Conducted C certificate teacher training for Firestone, More than Me, and others.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2019</h3>
+                        <p>Developed ECE teacher training for six counties for the Ministry of Education (GPE).</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <p>Implemented community-based ECE with World Bank funding.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Adapted opensource books and developed eBooks for the Ministry of Education (GPE).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <h2>Our Partners</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\partner-code.jpg" alt="CODE">
+                        <h3>CODE</h3>
+                        <p>Canadian NGO supporting Reading Liberia, GALI, and TLFC programs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\moe.png" alt="MOE">
+                        <h3>Ministry of Education</h3>
+                        <p>Collaborates on teacher training and resource distribution.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\world-bank-logo-data.jpg" alt="WORLD BANK GROUP">
+                        <h3>World Bank Group</h3>
+                        <p>Funds community-based ECE initiatives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\Global-Affairs.jpg" alt="OSI">
+                        <h3>Global Affairs</h3>
+                        <p>Supports educational development projects through CODE and the TLFC project.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="https://www.peacecorpsconnect.org/wp-content/uploads/2024/02/400x400fPNG-42.png" alt="Friends of Liberia">
+                        <h3>Friends of Liberia</h3>
+                        <p>Former Peace Corps volunteers aiding Family Literacy Initiative.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="https://th.bing.com/th/id/R.b19256230e249983e83a9b7980f9799b?rik=XpD6hC0odUzRSA&riu=http%3a%2f%2ffloridahippy.fmhi.usf.edu%2fimages%2fHIPPYuslogo.png&ehk=wNpYRSUpCAvCjrIX58Njp3R0zGsqo6OIqKbd%2f3d4Dpg%3d&risl=&pid=ImgRaw&r=0" alt="HIPPY International">
+                        <h3>HIPPY International</h3>
+                        <p>Collaborates on home-based ECE programs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="https://kritickemysleni.cz/wp-content/uploads/2020/04/cropped-logo_small.jpg" alt="RWCT">
+                        <h3>RWCT</h3>
+                        <p>Promotes critical thinking through teacher training.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="https://th.bing.com/th/id/R.022695c6de77b6a3d1cddc14a741952d?rik=9q3vbiOU7F%2fCMA&pid=ImgRaw&r=0" alt="Critical Thinking International">
+                        <h3>Critical Thinking International</h3>
+                        <p>Develops innovative teaching methods.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="https://mma.prnewswire.com/media/1040652/Chemonics_International_Logo.jpg?p=facebook" alt="Chemonics">
+                        <h3>Chemonics (LFSA)</h3>
+                        <p>Partnered on USAID-funded teaching materials in 2024.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="https://th.bing.com/th/id/R.b81d60b81e76ee06266ee149cedd2276?rik=oXrjWiPxr04Ing&pid=ImgRaw&r=0" alt="Book Aid International">
+                        <h3>Book Aid International</h3>
+                        <p>Supplies books for libraries and reading programs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="partner-card">
+                        <img src="images/partner-law.jpg" alt="Liberia Association of Writers">
+                        <h3>Liberia Association of Writers</h3>
+                        <p>Enhances book development with local content.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-3">WE-CARE is a proud member of the International Literacy Association (ILA), Proliteracy, and African Library and Information Associations and Institutions (AFLIA).</p>
+        </div>
+    </section>
+
+    <!-- Liberia Map Section -->
+    <section class="liberia-map" id="liberia-map">
+        <div class="container">
+            <h2>Our Work in Liberia</h2>
+            <p>We are proud to serve communities across Liberia, focusing on sustainable development in the following counties:</p>
+            <div class="counties-list">
+                <span>Montserrado</span>
+                <span>Margibi</span>
+                <span>Grand Bassa</span>
+                <span>Grand Kru</span>
+                <span>Nimba</span>
+                <span>Lofa</span>
+                <span>Grand Gedeh</span>
+                <span>Rivercess</span>
+                <span>Sinoe</span>
+                <span>Maryland</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Reach out to learn more about our work or to get involved with WE-CARE.</p>
+            
+            <div class="contact-details">
+                <p><i class="bi bi-envelope"></i> EMAIL: mweah@wecarelib.ngo</p>
+                <p><i class="bi bi-telephone"></i> PHONE NUMBERS: +231 777 024 251 / +231 886 779 056</p>
+                <p><i class="bi bi-geo-alt"></i> LOCATION: 16th Street(Landside), Sinkor, Monrovia, Liberia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <h2>Make a Difference Today</h2>
+            <p>Your involvement can change lives. Donate, volunteer, or share our mission to help us build a sustainable and equitable world for all.</p>
+            <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\DONATE.html" class="btn">Support Our Programs</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 WE-CARE Foundation, Inc. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://web.facebook.com/wecare.library/?_rdc=1&_rdr"><i class="bi bi-facebook"></i></a>
+                <a href="https://x.com/WeLiberia/status/1124265396868145152"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.youtube.com/channel/UCsnm4HECylW2yvfW2r-R9Ug"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scroll for Nav Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll Reveal Animation for Impact Cards
+        const revealElements = document.querySelectorAll('.impact-card');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check on page load
+
+        // Active Nav Link Highlight
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Back to Top Button Visibility
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

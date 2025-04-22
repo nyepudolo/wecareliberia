@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching and Learning in Fragile Contexts (TLFC)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-color: #f0fff4;
+            color: #1a3c34;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2f855a, #68d391);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            color: #2f855a;
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: #68d391;
+            bottom: 0;
+            left: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            background: #e6fffa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #2f855a;
+            border-radius: 5px;
+        }
+
+        .cta {
+            background-color: #2f855a;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            font-weight: 600;
+        }
+
+        .cta:hover {
+            background-color: #22543d;
+        }
+
+        .donate-cta {
+            background-color: #68d391;
+            color: #1a3c34;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+            font-weight: 600;
+        }
+
+        .donate-cta:hover {
+            background-color: #4a9d6b;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1200px;
+            height: 400px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 800px;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .home-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2f855a;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+
+        .home-button:hover {
+            background-color: #22543d;
+        }
+
+        footer {
+            background-color: #2f855a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        footer h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        footer .cta, footer .donate-cta {
+            margin-top: 30px;
+            margin-left: 10px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-image {
+                height: 250px;
+            }
+
+            .section-image {
+                height: 200px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta, .donate-cta {
+                margin-left: 5px;
+                padding: 12px 20px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .hero-image {
+                height: 500px;
+            }
+
+            .section-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Teaching and Learning in Fragile Contexts (TLFC)</h1>
+        <p>Empowering 22,000+ students in Liberia and Sierra Leone with inclusive, high-quality, gender-responsive education through a transformative four-year initiative.</p>
+        <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\IMG_8602.JPG" alt="Students in TLFC program" class="hero-image">
+        <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\DONATE.html" class="donate-cta">Donate Now</a>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>About TLFC</h2>
+            <p>College of Education - WE-CARE through the Teaching and Learning in Fragile Context project (TLFC) is supporting quality, equitable primary education, ensuring systemic and sustainable change. The project training for six colleges teacher educators, student teachers and in-service primary teachers at the colleges 32 practicum schools, connects with decision makers (Ministry of Education and National Commission on Higher Education) to ensure understanding and application of best practices especially related to foundational learning, gender-responsive teaching strategies; and growing the evidence-based of research around education in fragile settings (like Liberia and Sierra Leone) as a result of civil crisis, Ebola, and the COVID pandemic).
+
+                TLFC has developed six anthologies for grades 1 – 6 with a teacher’s guide at the back of each book, including a digital component using offline RACEL server and tablets with resources that are updated periodically..</p>
+        </div>
+
+        <div class="section">
+            <h2>Why This Work Matters</h2>
+            <p>Liberia continues to recover from decades of civil conflict, the Ebola crisis, and the global COVID-19 pandemic. These challenges have left deep impacts on the education system, especially in rural and underserved communities. Literacy rates remain alarmingly low—particularly among women and girls—and access to quality education is often hindered by poverty, limited learning materials, and a shortage of trained teachers. TLFC addresses these barriers to create lasting educational change.</p>
+            <img src="C:\Users\owner\OneDrive\Desktop\WECARESITE\IMG_8527.JPG" alt="Impact of TLFC in Liberia" class="section-image">
+        </div>
+
+        <div class="section">
+            <h2>Our Key Activities</h2>
+            <ul>
+                <li><strong>Teacher Training & Support</strong>: Partnering with teachers’ training institutes to enhance pre-service and in-service teacher preparation, focusing on active learning, gender-responsive pedagogy, and foundational literacy. Teachers receive ongoing support to improve instructional practices.</li>
+                <li><strong>Locally Developed Reading Materials</strong>: Producing curriculum-aligned reading anthologies with engaging, culturally relevant content authored and illustrated by local talent, emphasizing themes like girls’ empowerment. Thousands of books will be distributed to classrooms and libraries.</li>
+                <li><strong>Strengthening Education Leadership</strong>: Building the capacity of education decision-makers through evidence-based research to promote gender equality, inclusion, and improved learning outcomes, particularly for refugee and internally displaced students.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Looking Ahead</h2>
+            <p>The lasting legacy of TLFC will be a new generation of well-equipped, effective educators who possess the tools, confidence, and experience to transform the learning experience of their students. Through this program, WE-CARE Foundation is helping shape an educational future where every child—especially girls—can thrive in a supportive, inclusive, and high-quality learning environment.</p>
+        </div>
+    </div>
+
+    <footer>
+        <h3>Support TLFC’s Mission</h3>
+        <p>Join WE-CARE Foundation in transforming education in Liberia. Your support can help thousands of children access the quality education they deserve.</p>
+        <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\DONATE.html" class="donate-cta">Donate Now</a>
+        <div class="copyright">© 2025 WE-CARE Foundation. All rights reserved.</div>
+    </footer>
+
+    <a href="C:\Users\owner\OneDrive\Desktop\WECARESITE\index.html" class="home-button">Back to Home</a>
+</body>
+</html>
